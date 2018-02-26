@@ -119,3 +119,7 @@ When we saw the pod STATUS go from `Running`... to `Init`... to `Running`, we ob
 II) BOSH replaced the Worker Node:
 
 When we saw the VM status go from  `running`... to `unresponsive agent` to `running`, we observed the BOSH actions as it learned that the Worker Node VM was no longer there, and went on to create a brand new VM in it's place. Since BOSH knows the role of that VM in the Kubernetes cluster, BOSH is able to recreate a brand new VM with that role, and our Kubernetes cluster is healthy again.
+
+14. Validate we can still request the data from Elasticsearch with curl: curl -i -X GET "http://$ES_IP/myindex/order/1?pretty=true"
+
+Since the Elasticsearch deployment is attached to a persistent volume, we maintain all the data entered even when the pod and VM are removed.
