@@ -11,9 +11,15 @@ Demonstrates deployment of a single node Elasticsearch cluster with persistent v
 
 2. Please make sure that "Enable Privileged Containers - Use with caution" option is selected for your Plan (Plan 1, Plan 2 etc) under PKS Configuration in Ops Manager.
 
+3. Login to PKS Environment `pks login -a <<PKS hostname>> -u <<username>> -p <<password>> --skip-ssl-verification`
+
+4. Create a Kubernetes Cluster `pks create-cluster <<cluster-name>> --external-hostname <<Public DNS Name>> --plan <<plan-name>> --num-nodes <<no-of-nodes>>`
+
+5. Login to the cluster `pks get-credentials <<cluster-name>>`
+
 ## Steps
 
-1. Clone this repository.
+1. Clone(Download) this repository and execute the following commands.
 
 2. Create Storage Class
 
@@ -37,7 +43,7 @@ This could also be changed to be a load balancer service if NSX-T is configured 
 
 6. Access Elasticsearch Deployment
 
-(The worker node ID is the next IP from your Kubernetes Master IP (x.x.x.17 if the Master IP is x.x.x.16), you can find the Kubernetes Master IP by executing `PKS cluster <<cluster-name>>``)
+(The worker node ID is the next IP from your Kubernetes Master IP (x.x.x.17 if the Master IP is x.x.x.16), you can find the Kubernetes Master IP by executing `pks cluster <<cluster-name>>`)
 
 `kubectl get svc` to get the node port. (Note down the 5 digit port number instead of 9200)
 `export ES_IP=<<ES_WORKER_NODE_IP>>:<<node_port>>`
@@ -106,7 +112,7 @@ Go to vCenter and "Power Off" the VM with the correlating VM DNS name.
 
 Run `watch kubectl get pods -o wide` in your terminal to watch Kubernetes recreate the pod on the other worker. Note: This happens very quickly after VM is powered off!
 
-Run `watch bosh -e <<your bosh alias>> vms` to watch BOSH recreate the missing worker.
+Run `watch bosh -e <<your bosh alias>> vms` to watch BOSH recreate the missing worker. You can also use `watch kubectl get nodes -o wide`  in your terminal to see the new nodes being created by BOSH.
 
 13. What just happened?
 
