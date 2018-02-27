@@ -19,7 +19,7 @@ Demonstrates deployment of a single node Elasticsearch cluster with persistent v
 
 ## Steps
 
-1. Clone(Download) this repository and execute the following commands.
+1. Download this repository and execute the following commands.
 
 2. Create Storage Class
 
