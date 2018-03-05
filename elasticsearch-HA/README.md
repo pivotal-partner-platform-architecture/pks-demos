@@ -19,12 +19,14 @@ Demonstrates deployment of a single node Elasticsearch cluster with persistent v
 
 ## Steps
 
-1. Download this repository and execute the following commands.
+1. Clone or Download this repository and execute the following commands.
 
 2. Create Storage Class
 
 `kubectl create -f storage-class-gcp.yml` OR
 `kubectl create -f storage-class-vsphere`
+
+Read about Kubernetes Storage Classes [here.](https://kubernetes.io/docs/concepts/storage/storage-classes/)
 
 3. Create Persistent Volume claim
 
@@ -34,7 +36,12 @@ Demonstrates deployment of a single node Elasticsearch cluster with persistent v
 
 `kubectl create -f es-svc.yml`
 
-This could also be changed to be a load balancer service if NSX-T is configured or running on GCP.
+If NSX-T is configured or running on GCP, change ` type: NodePort` to `type: LoadBalancer`, and add this snipped under `ports:` 
+```
+ - name: transport
+    port: 9300
+    protocol: TCP
+```
 
 5. Create Elasticsearch Deployment
 
