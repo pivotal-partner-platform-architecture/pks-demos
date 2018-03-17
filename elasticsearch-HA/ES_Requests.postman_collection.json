@@ -1,0 +1,186 @@
+{
+	"info": {
+		"name": "ES_Requests",
+		"_postman_id": "6170dc40-902e-4779-a638-7591bc319052",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreateIndex",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"settings\":\r\n  {\r\n    \"index\": {\r\n      \"number_of_shards\": 2,\r\n      \"number_of_replicas\": 1\r\n    }\r\n  }\r\n}"
+				},
+				"url": {
+					"raw": "http://10.193,221.232:31211/myindex",
+					"protocol": "http",
+					"host": [
+						"10",
+						"193,221",
+						"232"
+					],
+					"port": "31211",
+					"path": [
+						"myindex"
+					]
+				},
+				"description": "Create elastic search index"
+			},
+			"response": []
+		},
+		{
+			"name": "GetIndex",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "CreateOrderType",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://10.193.221.232:31211/myindex/order/_mapping",
+					"protocol": "http",
+					"host": [
+						"10",
+						"193",
+						"221",
+						"232"
+					],
+					"port": "31211",
+					"path": [
+						"myindex",
+						"order",
+						"_mapping"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "CreateCustomers",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customer_id\": \"customer1\"\r\n}"
+				},
+				"url": {
+					"raw": "http://10.193.221.232:31211/myindex/order/1",
+					"protocol": "http",
+					"host": [
+						"10",
+						"193",
+						"221",
+						"232"
+					],
+					"port": "31211",
+					"path": [
+						"myindex",
+						"order",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "CreateCustomers2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customer_id\": \"customer2\"\r\n}"
+				},
+				"url": {
+					"raw": "http://10.193.221.232:31211/myindex/order/2",
+					"protocol": "http",
+					"host": [
+						"10",
+						"193",
+						"221",
+						"232"
+					],
+					"port": "31211",
+					"path": [
+						"myindex",
+						"order",
+						"2"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetCustomer1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://10.193.221.232:31211/myindex/order/1?pretty=true",
+					"protocol": "http",
+					"host": [
+						"10",
+						"193",
+						"221",
+						"232"
+					],
+					"port": "31211",
+					"path": [
+						"myindex",
+						"order",
+						"1"
+					],
+					"query": [
+						{
+							"key": "pretty",
+							"value": "true",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
