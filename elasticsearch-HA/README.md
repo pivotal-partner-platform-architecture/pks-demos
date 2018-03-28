@@ -50,7 +50,7 @@ If NSX-T is configured or running on GCP, change ` type: NodePort` to `type: Loa
 
 6. Access Elasticsearch Deployment
 
-(The worker node ID is the next IP from your Kubernetes Master IP (x.x.x.17 if the Master IP is x.x.x.16), you can find the Kubernetes Master IP by executing `pks cluster <<cluster-name>>`)
+(The worker node ID can be any K8S node external IP, you can find node IPs by executing `kubectl get nodes -o wide`)
 
 `kubectl get svc` to get the node port. (Note down the 5 digit port number instead of 9200)
 `export ES_IP=<<ES_WORKER_NODE_IP>>:<<node_port>>`
