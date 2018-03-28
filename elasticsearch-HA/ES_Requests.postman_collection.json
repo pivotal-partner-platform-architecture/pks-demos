@@ -1,8 +1,7 @@
 {
 	"info": {
+		"_postman_id": "bc49279f-d047-4ae7-ad6d-507d20d348c3",
 		"name": "ES_Requests",
-		"_postman_id": "6170dc40-902e-4779-a638-7591bc319052",
-		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -21,12 +20,10 @@
 					"raw": "{\"settings\":\r\n  {\r\n    \"index\": {\r\n      \"number_of_shards\": 2,\r\n      \"number_of_replicas\": 1\r\n    }\r\n  }\r\n}"
 				},
 				"url": {
-					"raw": "http://10.193,221.232:31211/myindex",
+					"raw": "http://xxxx:31211/myindex",
 					"protocol": "http",
 					"host": [
-						"10",
-						"193,221",
-						"232"
+						"xxxx"
 					],
 					"port": "31211",
 					"path": [
@@ -42,11 +39,21 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
-				"url": {
+				"body": {
+					"mode": "raw",
 					"raw": ""
 				},
-				"description": ""
+				"url": {
+					"raw": "http://xxxx:31211/myindex",
+					"protocol": "http",
+					"host": [
+						"xxxx"
+					],
+					"port": "31211",
+					"path": [
+						"myindex"
+					]
+				}
 			},
 			"response": []
 		},
@@ -60,24 +67,23 @@
 						"value": "application/json"
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": "{\"order\":\r\n  {\r\n    \"properties\": {\r\n      \"id\": {\"type\": \"keyword\", \"store\": \"true\"},\r\n      \"customer_id\": {\"type\": \"keyword\", \"store\": \"true\"}\r\n    }\r\n  }\r\n}"
+				},
 				"url": {
-					"raw": "http://10.193.221.232:31211/myindex/order/_mapping",
+					"raw": "http://xxxx:32161/myindex/order/_mapping",
 					"protocol": "http",
 					"host": [
-						"10",
-						"193",
-						"221",
-						"232"
+						"xxxx"
 					],
-					"port": "31211",
+					"port": "32161",
 					"path": [
 						"myindex",
 						"order",
 						"_mapping"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -96,13 +102,10 @@
 					"raw": "{\r\n  \"customer_id\": \"customer1\"\r\n}"
 				},
 				"url": {
-					"raw": "http://10.193.221.232:31211/myindex/order/1",
+					"raw": "http://xxxx:31211/myindex/order/1",
 					"protocol": "http",
 					"host": [
-						"10",
-						"193",
-						"221",
-						"232"
+						"xxxx"
 					],
 					"port": "31211",
 					"path": [
@@ -110,8 +113,7 @@
 						"order",
 						"1"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -130,13 +132,10 @@
 					"raw": "{\r\n  \"customer_id\": \"customer2\"\r\n}"
 				},
 				"url": {
-					"raw": "http://10.193.221.232:31211/myindex/order/2",
+					"raw": "http://xxxx:31211/myindex/order/2",
 					"protocol": "http",
 					"host": [
-						"10",
-						"193",
-						"221",
-						"232"
+						"xxxx"
 					],
 					"port": "31211",
 					"path": [
@@ -144,8 +143,7 @@
 						"order",
 						"2"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -154,15 +152,15 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "http://10.193.221.232:31211/myindex/order/1?pretty=true",
+					"raw": "http://xxxx:31211/myindex/order/1?pretty=true",
 					"protocol": "http",
 					"host": [
-						"10",
-						"193",
-						"221",
-						"232"
+						"xxxx"
 					],
 					"port": "31211",
 					"path": [
@@ -173,12 +171,10 @@
 					"query": [
 						{
 							"key": "pretty",
-							"value": "true",
-							"equals": true
+							"value": "true"
 						}
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		}
