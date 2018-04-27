@@ -7,7 +7,7 @@ Based on [Kubernetes samples](https://github.com/kubernetes/examples/tree/master
 Demonstrates deployment of a single node Elasticsearch cluster with persistent volumes. Once deployed, we can demonstrate K8S self-healing, BOSH resurrection, and persistence capabilities.
 
 ## Prerequisites
-1. A provisioned kubernetes cluster with at least 2 worker nodes. See PKS documentation to install PKS provision a k8s cluster, and connect via `kubectl`. https://docs.pivotal.io/runtimes/pks/1-0/
+1. A provisioned kubernetes cluster with at least 2 worker nodes. See PKS documentation to install PKS provision a k8s cluster, and connect via `kubectl`. [PKS Documentation](https://docs.pivotal.io/runtimes/pks/1-0/)
 
 2. Please make sure that "Enable Privileged Containers - Use with caution" option is selected for your Plan (Plan 1, Plan 2 etc) under PKS Configuration in Ops Manager.
 
@@ -36,7 +36,7 @@ Read about Kubernetes Storage Classes [here.](https://kubernetes.io/docs/concept
 
 `kubectl create -f es-svc.yml`
 
-If NSX-T is configured or running on GCP, change ` type: NodePort` to `type: LoadBalancer`, and add this snipped under `ports:` 
+If NSX-T is configured or running on GCP, change ` type: NodePort` to `type: LoadBalancer`, and add this snipped under `ports:`
 ```
  - name: transport
     port: 9300
