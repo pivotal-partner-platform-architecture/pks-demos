@@ -13,19 +13,19 @@
 
 `cat dockerfile`
 
-1. Build the Articulate docker image. Name refers to your Docker username.
+2. Build the Articulate docker image. Name refers to your Docker username.
 
 `docker build . -t {{name}}/articulate`
 
-1. Push the built image to your image registry.
+3. Push the built image to your image registry.
 
 `docker push {{name}}/articulate`
 
-2. Deploy the image to PKS.
+4. Deploy the image to PKS.
 
 `kubectl run --image={{name}}/articulate articulate --port=8080`
 
-3. Expose the deployment via Kubernetes NodePort Service.
+5. Expose the deployment via Kubernetes NodePort Service.
 
 `kubectl expose deployment articulate --port=8080 --name=articulate-svc --type=NodePort`
 
